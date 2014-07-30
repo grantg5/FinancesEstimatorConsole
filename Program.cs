@@ -8,6 +8,11 @@ namespace FinancialEstimatorConsole
 {
     class FinancialEstimatorConsole
     {
+        /// <summary>
+        ///     Simple console-based application. Estimates spending per month in order to hit a certain financial
+        ///     goal.
+        /// </summary>
+        /// <author>Grant Gadomski</author>
         static double Estimator(int cash, int purchasesTotal, int cashIn, int months, int leftOver)
         {
             /// <summary>Calculates how much can be spent per month given the paramaters.</summary>
@@ -43,19 +48,19 @@ namespace FinancialEstimatorConsole
             Console.WriteLine("Welcome to the Financial Estimator.\n");
             
             Console.Write("Please enter your starting cash: ");
-            cash = Convert.ToInt32(Console.ReadLine());
+            cash = Convert.ToInt32(Console.ReadLine().Replace(",", "").Replace("$", ""));
 
             Console.Write("\nPlease enter what you expect to spend on large future purchases: ");
-            purchasesTotal = Convert.ToInt32(Console.ReadLine());
+            purchasesTotal = Convert.ToInt32(Console.ReadLine().Replace(",", "").Replace("$", ""));
 
             Console.Write("\nPlease enter any income expected in the future: ");
-            cashIn = Convert.ToInt32(Console.ReadLine());
+            cashIn = Convert.ToInt32(Console.ReadLine().Replace(",", "").Replace("$", ""));
 
             Console.Write("\nPlease enter how many months this money needs to last: ");
-            months = Convert.ToInt32(Console.ReadLine());
+            months = Convert.ToInt32(Console.ReadLine().Replace(",", ""));
 
-            Console.Write("\nPlease enter how much cash should be left over or be a cushon: ");
-            leftOver = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nPlease enter how much cash should be left at the end: ");
+            leftOver = Convert.ToInt32(Console.ReadLine().Replace(",", "").Replace("$", ""));
             Console.WriteLine();
 
             cashPerMonth = FinancialEstimatorConsole.Estimator(cash, purchasesTotal, cashIn, months, leftOver);
